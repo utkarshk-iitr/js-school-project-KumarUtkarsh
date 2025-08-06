@@ -1,2 +1,2 @@
-# js-school-project-Utkarsh-Kumar
+# js-school-project-KumarUtkarsh
 Repository for Tasks given by DataArt JS School

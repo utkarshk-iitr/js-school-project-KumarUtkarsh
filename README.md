@@ -1,2 +1,2 @@
-# js-school-project-Utkarsh-Kumar
-Repository for Tasks given by DataArt JS School
+# Task 1. HTML. The Foundations of Web Design
+Created a static HTML page of timeline app

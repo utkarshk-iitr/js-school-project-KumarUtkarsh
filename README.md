@@ -1,2 +1,2 @@
-# Task 1. HTML. The Foundations of Web Design
-Created a static HTML page for timeline app
+# Task 2. CSS and Preprocessors
+Styled the HTML page into a responsive, polished layout

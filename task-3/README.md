@@ -1,2 +1,2 @@
-# Task 2. CSS and Preprocessors
-Styled the HTML page into a responsive, polished layout
+# Task 3. JavaScript Fundamentals
+Brought interactivity with basic javascript

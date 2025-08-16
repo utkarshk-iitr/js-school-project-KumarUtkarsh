@@ -1,2 +1,2 @@
-# Task 2. CSS and Preprocessors
-Styled the HTML page into a responsive, polished layout
+# Task 4. Typescript Fundamentals
+Replace javascript with typescript files and build it from npm

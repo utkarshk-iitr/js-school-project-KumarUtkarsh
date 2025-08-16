@@ -4,8 +4,10 @@
   "description": "Styled the HTML page into a responsive, polished layout",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

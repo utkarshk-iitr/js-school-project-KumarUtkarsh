@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { fetchEvents } from "./fetcher";
-import { render } from "./renderer";
+import { fetchEvents } from "./fetcher.js";
+import { render } from "./renderer.js";
 document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const events = yield fetchEvents();

@@ -1,4 +1,4 @@
-export interface EventData {
+export interface EventData{
   year: string;
   title: string;
   desc: string;

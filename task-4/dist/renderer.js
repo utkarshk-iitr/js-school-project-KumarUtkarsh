@@ -1,4 +1,4 @@
-import { openModal } from "./modal";
+import { openModal } from "./modal.js";
 export function render(events) {
     const timeline = document.getElementById("timeline");
     if (!timeline)

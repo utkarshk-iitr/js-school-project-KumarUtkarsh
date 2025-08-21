@@ -12,7 +12,7 @@ const App: React.FC = () => {
     setThemeDark((p) => !p);
     document.documentElement.style.background = !themeDark ? "#0b1220" : "#fff";
     document.body.style.background = !themeDark ? "#0b1220" : "#fff";
-    document.body.style.color = !themeDark ? "#e7e9ee" : "#333";
+    document.body.style.color = "#333";
   }, [themeDark]);
 
   return (

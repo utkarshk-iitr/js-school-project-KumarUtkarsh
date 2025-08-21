@@ -1,4 +1,0 @@
-/* minimal resets + root mounting helpers */
-:root { color-scheme: light dark; }
-html, body, #root { height: 100%; }
-#root { display: contents; }

@@ -60,6 +60,7 @@ main{
     border-left: 5px solid #0066b2;
     overflow: hidden;
     display: flow-root;
+    cursor: pointer;
 }
 
 .event-marker{
@@ -73,7 +74,7 @@ main{
 }
 
 .event h3{
-    color: #333;
+    color: #049ad5;
     font-size: 22px;
     margin-bottom: 15px;
 }
@@ -90,7 +91,7 @@ main{
 }
 
 .event p{
-    color: #666;
+    color: #49adf4;
     font-size: 16px;
     line-height: 1.5;
 }

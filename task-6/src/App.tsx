@@ -26,16 +26,13 @@ const App: React.FC = () => {
         return;
       }
     } catch (e) {
-      /* ignore localStorage errors (e.g. private mode) */
+      // pass
     }
 
-    // fallback to system preference
-    const prefersDark =
-      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     setThemeDark(prefersDark);
     applyThemeClass(prefersDark);
 
-    // optional: respond to system changes *only if* user hasn't saved a preference
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e: MediaQueryListEvent) => {
       try {
@@ -44,14 +41,13 @@ const App: React.FC = () => {
           applyThemeClass(e.matches);
         }
       } catch {
-        // ignore
+        // pass
       }
     };
     mq.addEventListener?.("change", handler);
     return () => mq.removeEventListener?.("change", handler);
   }, []);
 
-  // toggle theme and persist choice
   const onToggleTheme = useCallback(() => {
     setThemeDark((prev) => {
       const next = !prev;
@@ -59,7 +55,7 @@ const App: React.FC = () => {
       try {
         localStorage.setItem(STORAGE_KEY, next ? "dark" : "light");
       } catch {
-        // ignore storage errors
+        // pass
       }
       return next;
     });
@@ -67,7 +63,6 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* pass themeDark so Header can reflect the current theme if needed */}
       <Header onToggleTheme={onToggleTheme} themeDark={themeDark} />
       <FilterPanel categories={categories} onFilter={applyFilter} />
       <Timeline events={events} />

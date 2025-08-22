@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import React from "react";
 
 interface HeaderProps {
@@ -10,7 +9,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleTheme, themeDark = false }) => 
   return (
     <header>
       <div className="logo">
-        {/* Use the public folder path for Vite/CRA: /imgs/logo.png (public/imgs/logo.png) */}
         <img src="../../public/imgs/logo.png" width={42} height={42} alt="Timeline App logo" onError={(e) => {
             (e.target as HTMLImageElement).style.display = "none";
           }}

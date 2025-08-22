@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import type { EventItem } from "../types";
+import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
+import type { EventItem } from '../types';
 
 type Props = {
   event: EventItem;
@@ -8,41 +8,49 @@ type Props = {
 };
 
 const EventModal: React.FC<Props> = ({ event, onClose }) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const dialog = dialogRef.current;
+    if (dialog) {
+      // The <dialog> element handles the Escape key automatically.
+      dialog.showModal();
+      dialog.addEventListener('close', onClose);
+    }
+
+    return () => {
+      if (dialog) {
+        dialog.removeEventListener('close', onClose);
+      }
+    };
   }, [onClose]);
 
-  if (!document || !document.body) return null;
+  if (!document || !document.body) {
+    return null;
+  }
 
   return ReactDOM.createPortal(
-    <div
-      id="modal"
-      role="dialog"
-      aria-modal="true"
-      onClick={onClose}
-      style={{ display: "flex" }}
+    <dialog
+      ref={dialogRef}
+      id="event-modal"
+      className="modal-content"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
     >
-      <div
-        className="modal-content"
-        onClick={(e) => e.stopPropagation()}
-        role="document"
-        style={{ position: "relative" }}
+      <button
+        className="modal-close"
+        onClick={() => dialogRef.current?.close()}
+        aria-label="Close"
+        style={{ background: 'transparent', border: 'none', fontSize: '28px', cursor: 'pointer', position: 'absolute', top: '10px', right: '15px' }}
       >
-        <button
-          className="modal-close"
-          onClick={onClose}
-          aria-label="Close"
-          style={{ background: 'transparent', border: 'none', fontSize: 28, cursor: 'pointer' }}
-        >
-          &times;
-        </button>
-        <h2 style={{ marginBottom: 12 }}>{event.title}</h2>
-        <img src={`/${event.img}`} alt={event.title} style={{ width: "50%", margin: "10px 0 16px", borderRadius: 8 }} />
-        <p>{event.desc}</p>
-      </div>
-    </div>,
+        &times;
+      </button>
+      <h2 id="modal-title" style={{ marginBottom: '12px' }}>
+        {event.title}
+      </h2>
+      <img src={event.img} alt="" style={{ width: '50px', margin: '10px 0 16px', borderRadius: '8px' }} />
+      <p id="modal-description">{event.desc}</p>
+    </dialog>,
     document.body
   );
 };

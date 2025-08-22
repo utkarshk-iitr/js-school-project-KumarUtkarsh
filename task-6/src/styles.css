@@ -1,3 +1,23 @@
+:root {
+  --background: #fff;
+  --foreground: #333;
+  --link: #0056b3; /* Changed from #007bff for better contrast */
+  --border: #ddd;
+  --card-bg: #f9f9f9;
+  --marker-bg: #007bff;
+  --marker-text: white;
+}
+
+[data-theme='dark'] {
+  --background: #0b1220;
+  --foreground: #eee;
+  --link: #63a4ff;
+  --border: #444;
+  --card-bg: #1f2937;
+  --marker-bg: #63a4ff;
+  --marker-text: #0b1220;
+}
+
 *{
     margin: 0;
     padding: 0;

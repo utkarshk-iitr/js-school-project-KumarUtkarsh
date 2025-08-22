@@ -13,7 +13,6 @@ const EventModal: React.FC<Props> = ({ event, onClose }) => {
   useEffect(() => {
     const dialog = dialogRef.current;
     if (dialog) {
-      // The <dialog> element handles the Escape key automatically.
       dialog.showModal();
       dialog.addEventListener('close', onClose);
     }
@@ -45,10 +44,10 @@ const EventModal: React.FC<Props> = ({ event, onClose }) => {
       >
         &times;
       </button>
-      <h2 id="modal-title" style={{ marginBottom: '12px' }}>
+      <h2 id="modal-title" style={{ marginBottom: 12 }}>
         {event.title}
       </h2>
-      <img src={event.img} alt="" style={{ width: '50px', margin: '10px 0 16px', borderRadius: '8px' }} />
+      <img src={event.img} alt="" style={{ width: '50%', margin: '10px 0 16px', borderRadius: 8 }} />
       <p id="modal-description">{event.desc}</p>
     </dialog>,
     document.body

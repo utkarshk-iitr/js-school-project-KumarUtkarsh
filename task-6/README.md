@@ -1,2 +1,2 @@
-# Task-5. React
-Rebuilding the website with help of React
+# Task-6. Web Accessibility
+Added web accessibility to the website

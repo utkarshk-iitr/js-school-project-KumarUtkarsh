@@ -1,0 +1,255 @@
+:root{
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #333333;
+  --muted: #999999;
+  --accent: #0066b2;
+  --accent-2: #037fb0;
+  --shadow: 0 4px 15px rgba(0,0,0,0.12);
+  --border: #0066b2;
+  --modal-overlay: rgba(0,0,0,0.6);
+  --focus-ring: 3px;
+  --transition-speed: 180ms;
+}
+
+.dark{
+  --bg: #0b1220;
+  --surface: #0f1724;
+  --text: #e6eef8;
+  --muted: #9eaab7;
+  --accent: #66b8ff;
+  --accent-2: #8fd7ff;
+  --shadow: 0 6px 20px rgba(0,0,0,0.6);
+  --border: #2a6aa1;
+  --modal-overlay: rgba(0,0,0,0.75);
+}
+
+@media (prefers-reduced-motion: reduce){
+  :root{ --transition-speed: 0ms; }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body{
+  font-family: 'Lucida Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+header{
+  background-color: var(--accent);
+  color: var(--surface);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo h1{
+  font-size: 24px;
+  color: var(--surface);
+}
+
+.theme{
+  color: var(--accent);
+  background-color: var(--surface);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 120ms ease;
+}
+
+.theme:focus,
+.theme:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 var(--focus-ring) var(--accent);
+  border-radius: 20px;
+}
+
+main{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#timeline h2{
+  text-align: center;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.event{
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--accent);
+  overflow: hidden;
+  display: flow-root;
+  cursor: pointer;
+  background-color: var(--surface);
+  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .event:hover{ transform: translateY(-3px); transition: transform 160ms ease; }
+}
+
+.event-marker{
+  background-color: var(--accent);
+  color: var(--surface);
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.event h3{
+  color: var(--accent-2);
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.event img{
+  max-width: 300px;
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.event p{
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+#modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay);
+  z-index: 1000;
+}
+
+.modal-content{
+  background-color: var(--surface);
+  color: var(--text);
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.modal-close{
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.modal-close:hover{
+  color: var(--text);
+}
+
+@media (max-width: 768px){
+  header{
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .logo{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo h1{
+    font-size: 20px;
+  }
+
+  main{
+    padding: 20px 15px;
+  }
+
+  #timeline h2{
+    font-size: 24px;
+  }
+
+  .event{
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .event h3{
+    font-size: 18px;
+  }
+
+  .event p{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px){
+  header{
+    padding: 15px;
+  }
+
+  .logo h1{
+    font-size: 18px;
+  }
+
+  .theme{
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  main{
+    padding: 15px 10px;
+  }
+
+  #timeline h2{
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .event{
+    padding: 15px;
+  }
+
+  .event h3{
+    font-size: 16px;
+  }
+}
+
+#modal.open{ display: block; }
